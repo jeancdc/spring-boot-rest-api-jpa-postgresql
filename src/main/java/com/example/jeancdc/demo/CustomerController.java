@@ -2,10 +2,7 @@ package com.example.jeancdc.demo;
 
 import com.example.jeancdc.demo.pojo.Customer;
 import com.example.jeancdc.demo.repository.CustomerRepository;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,8 +21,8 @@ public class CustomerController {
         return (List<Customer>) customerRepository.findAll();
     }
 
-    @RequestMapping(value = "/customer", method = RequestMethod.GET)
-    public Optional<Customer> getCustomer(@RequestParam(value="id") Long id) {
+    @GetMapping(value = "/customer")
+    public Optional<Customer> getCustomerById(@RequestParam(value="id") Long id) {
         return customerRepository.findById(id);
     }
 
