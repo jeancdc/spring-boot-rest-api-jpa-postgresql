@@ -32,3 +32,8 @@ This project is a demo of a REST application with JPA and a POSTGRESQL database.
 ```
 spring.datasource.username=john
 ```
+- `brew install maven`
+## Execute the application
+- clic on the Run button (The Green Arrow) to execute the application
+- `mvn spring-boot:run -Dserver.port=9000`
+- launch a browser and go to http://localhost:9000

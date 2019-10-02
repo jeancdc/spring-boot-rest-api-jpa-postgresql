@@ -1,4 +1,4 @@
-package com.example.jeancdc.demo;
+package com.example.jeancdc.demo.controller;
 
 import com.example.jeancdc.demo.pojo.Customer;
 import com.example.jeancdc.demo.repository.CustomerRepository;
