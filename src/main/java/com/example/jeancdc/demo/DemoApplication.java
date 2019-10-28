@@ -18,16 +18,18 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@Bean
+	/* @Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
 			// save a few customers
-			repository.save(new Customer("Jack", "Bauer"));
-			repository.save(new Customer("Chloe", "O'Brian"));
-			repository.save(new Customer("Kim", "Bauer"));
-			repository.save(new Customer("David", "Palmer"));
-			repository.save(new Customer("Michelle", "Dessler"));
-			repository.save(new Customer("Snake", "Plissken"));
+			repository.save(new Customer("Jack", "Bauer", 30));
+			repository.save(new Customer("Chloe", "O'Brian", 31));
+			repository.save(new Customer("Kim", "Bauer", 29));
+			repository.save(new Customer("David", "Palmer", 34));
+			repository.save(new Customer("Michelle", "Dessler", 33));
+			repository.save(new Customer("Snake", "Plissken", 36));
+
+			log.info("");
 
 			// fetch all customers
 			log.info("Customers found with findAll():");
@@ -40,21 +42,34 @@ public class DemoApplication {
 			// fetch an individual customer by ID
 			Customer customer = repository.findById(1L);
 			log.info("Customer found with findById(1L):");
-			log.info("--------------------------------");
+			log.info("---------------------------------");
 			log.info(customer.toString());
 			log.info("");
 
 			// fetch customers by last name
-			log.info("Customer found with findByLastName('Bauer'):");
-			log.info("--------------------------------------------");
+			log.info("Customers found with findByLastName('Bauer'):");
+			log.info("---------------------------------------------");
 			repository.findByLastName("Bauer").forEach(bauer -> {
 				log.info(bauer.toString());
 			});
-			// for (Customer bauer : repository.findByLastName("Bauer")) {
-			// 	log.info(bauer.toString());
-			// }
+			log.info("");
+
+			// fetch customers by last name and by age
+			log.info("Customer found with findByLastNameAndAge('Bauer', 29):");
+			log.info("------------------------------------------------------");
+			repository.findByLastNameAndAge("Bauer", 29).forEach(bauer -> {
+				log.info(bauer.toString());
+			});
+			log.info("");
+
+			// fetch customers by id greater than
+			log.info("Customers found with findAllByIdGreaterThanOrderByFirstNameDesc(2L):");
+			log.info("--------------------------------------------------------------------");
+			repository.findAllByIdGreaterThanOrderByFirstNameDesc(2L).forEach(c -> {
+				log.info(c.toString());
+			});
 			log.info("");
 		};
-	}
+	} */
 
 }
