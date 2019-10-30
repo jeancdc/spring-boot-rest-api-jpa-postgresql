@@ -1,7 +1,7 @@
 package com.example.jeancdc.demo;
 
-import com.example.jeancdc.demo.pojo.Customer;
-import com.example.jeancdc.demo.repository.CustomerRepository;
+import com.example.jeancdc.demo.persistence.entities.CustomerEntity;
+import com.example.jeancdc.demo.persistence.repositories.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -18,58 +18,58 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	/* @Bean
+	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
-			// save a few customers
-			repository.save(new Customer("Jack", "Bauer", 30));
-			repository.save(new Customer("Chloe", "O'Brian", 31));
-			repository.save(new Customer("Kim", "Bauer", 29));
-			repository.save(new Customer("David", "Palmer", 34));
-			repository.save(new Customer("Michelle", "Dessler", 33));
-			repository.save(new Customer("Snake", "Plissken", 36));
+			// save a few CustomerEntitys
+			repository.save(new CustomerEntity("Jack", "Bauer", 30));
+			repository.save(new CustomerEntity("Chloe", "O'Brian", 31));
+			repository.save(new CustomerEntity("Kim", "Bauer", 29));
+			repository.save(new CustomerEntity("David", "Palmer", 34));
+			repository.save(new CustomerEntity("Michelle", "Dessler", 33));
+			repository.save(new CustomerEntity("Snake", "Plissken", 36));
 
 			log.info("");
 
-			// fetch all customers
-			log.info("Customers found with findAll():");
+			// fetch all CustomerEntitys
+			log.info("CustomerEntitys found with findAll():");
 			log.info("-------------------------------");
-			for (Customer customer : repository.findAll()) {
-				log.info(customer.toString());
+			for (CustomerEntity CustomerEntity : repository.findAll()) {
+				log.info(CustomerEntity.toString());
 			}
 			log.info("");
 
-			// fetch an individual customer by ID
-			Customer customer = repository.findById(1L);
-			log.info("Customer found with findById(1L):");
+			// fetch an individual CustomerEntity by ID
+			CustomerEntity CustomerEntity = repository.findById(1L);
+			log.info("CustomerEntity found with findById(1L):");
 			log.info("---------------------------------");
-			log.info(customer.toString());
+			log.info(CustomerEntity.toString());
 			log.info("");
 
-			// fetch customers by last name
-			log.info("Customers found with findByLastName('Bauer'):");
+			// fetch CustomerEntitys by last name
+			log.info("CustomerEntitys found with findByLastName('Bauer'):");
 			log.info("---------------------------------------------");
 			repository.findByLastName("Bauer").forEach(bauer -> {
 				log.info(bauer.toString());
 			});
 			log.info("");
 
-			// fetch customers by last name and by age
-			log.info("Customer found with findByLastNameAndAge('Bauer', 29):");
+			// fetch CustomerEntitys by last name and by age
+			log.info("CustomerEntity found with findByLastNameAndAge('Bauer', 29):");
 			log.info("------------------------------------------------------");
 			repository.findByLastNameAndAge("Bauer", 29).forEach(bauer -> {
 				log.info(bauer.toString());
 			});
 			log.info("");
 
-			// fetch customers by id greater than
-			log.info("Customers found with findAllByIdGreaterThanOrderByFirstNameDesc(2L):");
+			// fetch CustomerEntitys by id greater than
+			log.info("CustomerEntitys found with findAllByIdGreaterThanOrderByFirstNameDesc(2L):");
 			log.info("--------------------------------------------------------------------");
 			repository.findAllByIdGreaterThanOrderByFirstNameDesc(2L).forEach(c -> {
 				log.info(c.toString());
 			});
 			log.info("");
 		};
-	} */
+	}
 
 }

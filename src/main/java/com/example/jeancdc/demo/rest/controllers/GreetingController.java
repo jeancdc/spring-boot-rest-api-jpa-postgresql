@@ -1,6 +1,6 @@
-package com.example.jeancdc.demo.controller;
+package com.example.jeancdc.demo.rest.controllers;
 
-import com.example.jeancdc.demo.pojo.Greeting;
+import com.example.jeancdc.demo.rest.models.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

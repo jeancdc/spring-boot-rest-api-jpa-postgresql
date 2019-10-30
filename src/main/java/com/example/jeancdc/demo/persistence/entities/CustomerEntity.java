@@ -1,12 +1,10 @@
-package com.example.jeancdc.demo.pojo;
+package com.example.jeancdc.demo.persistence.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Customer {
+@Table(name = "customer")
+public class CustomerEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -15,9 +13,9 @@ public class Customer {
     private String lastName;
     private int age;
 
-    protected Customer() {}
+    public CustomerEntity() {}
 
-    public Customer(String firstName, String lastName, int age) {
+    public CustomerEntity(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -34,15 +32,31 @@ public class Customer {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
         return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public int getAge() {
         return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

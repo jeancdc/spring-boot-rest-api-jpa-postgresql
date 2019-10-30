@@ -1,6 +1,7 @@
 package com.example.jeancdc.demo.repository;
 
-import com.example.jeancdc.demo.pojo.Customer;
+import com.example.jeancdc.demo.persistence.entities.CustomerEntity;
+import com.example.jeancdc.demo.persistence.repositories.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +24,15 @@ public class CustomerRepositoryTest {
     public void findByLastName() {
 
         // given
-        Customer customer = new Customer("John", "Rambo", 36);
-        customerRepository.save(customer);
+        CustomerEntity customerEntity = new CustomerEntity("John", "Rambo", 36);
+        customerRepository.save(customerEntity);
 
         // when
-        List<Customer> customers = customerRepository.findByLastName("Rambo");
+        List<CustomerEntity> customerEntities = customerRepository.findByLastName("Rambo");
 
         // then
-        assertEquals(customer, customers.get(0));
-        assertThat(customers.isEmpty(), is(false));
+        assertEquals(customerEntity, customerEntities.get(0));
+        assertThat(customerEntities.isEmpty(), is(false));
     }
 
     @Test

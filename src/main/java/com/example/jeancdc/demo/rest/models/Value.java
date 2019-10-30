@@ -1,4 +1,4 @@
-package com.example.jeancdc.demo.pojo;
+package com.example.jeancdc.demo.rest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
