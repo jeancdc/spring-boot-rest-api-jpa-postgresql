@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +34,7 @@ public class CustomerController {
     @GetMapping(value = "/customers", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Customer>> getCustomers() {
         List<CustomerEntity> customerEntities = customerRepository.findAll();
+        log.info("customer entities: " + customerEntities);
         List<Customer> customers = customerMapper.customerEntitiesToCustomersDto(customerEntities);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }

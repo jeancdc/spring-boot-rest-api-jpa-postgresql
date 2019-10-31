@@ -13,6 +13,10 @@ public class CustomerEntity {
     private String lastName;
     private int age;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
+    private VehicleEntity vehicleEntity;
+
     public CustomerEntity() {}
 
     public CustomerEntity(String firstName, String lastName, int age) {
@@ -21,11 +25,22 @@ public class CustomerEntity {
         this.age = age;
     }
 
+    public CustomerEntity(String firstName, String lastName, int age, VehicleEntity vehicleEntity) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.vehicleEntity = vehicleEntity;
+    }
+
     @Override
     public String toString() {
-        return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s', age='%d']",
-                id, firstName, lastName, age);
+        return "CustomerEntity{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", vehicleEntity=" + (vehicleEntity != null ? vehicleEntity.toString() : null) +
+                '}';
     }
 
     public Long getId() {
@@ -58,5 +73,13 @@ public class CustomerEntity {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public VehicleEntity getVehicleEntity() {
+        return vehicleEntity;
+    }
+
+    public void setVehicleEntity(VehicleEntity vehicleEntity) {
+        this.vehicleEntity = vehicleEntity;
     }
 }
